@@ -24,6 +24,9 @@ jobs:
       - name: Build 🔧
         run: npm run build-storybook
 
+      - name: Remove Jekyll
+        run: touch .nojekyll
+
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.1
         with:
