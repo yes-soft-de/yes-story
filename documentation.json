@@ -23,10 +23,10 @@
         },
         {
             "name": "ButtonProps",
-            "id": "interface-ButtonProps-80336ca223ec2db03b581e9533ee38c2",
+            "id": "interface-ButtonProps-2b89ac32da2f2bec55b23a9ea5a6f8b0",
             "file": "src/app/jira-control/button/button.stories.ts",
             "type": "interface",
-            "sourceCode": "import { Meta, Story } from '@storybook/angular';\nimport { ButtonComponent } from './button.component';\n\nexport default {\n  title: 'Components/Button',\n  component: ButtonComponent\n} as Meta;\n\ninterface ButtonProps extends ButtonComponent {\n  label: string;\n}\n\nconst Template: Story<ButtonComponent> = ({ label, className }: Partial<ButtonProps>) => ({\n  component: ButtonComponent,\n  moduleMetadata: {\n    declarations: [ButtonComponent], // Removed if no template\n    imports: []\n  },\n  template: `<j-button className='${className}'>${label}</j-button>`\n});\n\nexport const Primary: Story<ButtonProps> = Template.bind({});\nPrimary.args = {\n  className: 'btn-primary',\n  label: 'Primary'\n};\n\nexport const Secondary: Story<ButtonProps> = Template.bind({});\nSecondary.args = {\n  className: 'btn-secondary',\n  label: 'Secondary'\n};\n\nexport const Empty: Story<ButtonProps> = Template.bind({});\nEmpty.args = {\n  icon: \"times\",\n  className: 'btn-empty',\n  label: 'Cancel'\n};\n",
+            "sourceCode": "import { Meta, Story } from '@storybook/angular';\nimport { ButtonComponent } from './button.component';\n\nexport default {\n  title: 'Components/Button',\n  component: ButtonComponent\n} as Meta;\n\ninterface ButtonProps extends ButtonComponent {\n  label: string;\n}\n\nconst Template: Story<ButtonComponent> = ({ label, className }: Partial<ButtonProps>) => ({\n  component: ButtonComponent,\n  moduleMetadata: {\n    declarations: [ButtonComponent], // Removed if no template\n    imports: []\n  },\n  template: `<j-button className='${className}'>${label}</j-button>`\n});\n\nexport const Primary: Story<ButtonProps> = Template.bind({});\nPrimary.args = {\n  className: 'btn-primary',\n  label: 'Primary'\n};\n\nexport const Secondary: Story<ButtonProps> = Template.bind({});\nSecondary.args = {\n  className: 'btn-secondary',\n  label: 'Secondary'\n};\n\nexport const Empty: Story<ButtonProps> = Template.bind({});\nEmpty.args = {\n  icon: 'times',\n  className: 'btn-empty',\n  label: 'Cancel'\n};\n",
             "properties": [
                 {
                     "name": "label",
@@ -109,122 +109,122 @@
         },
         {
             "name": "JIssue",
-            "id": "interface-JIssue-18691b20c62af7cf438eda67fbb39ac5",
+            "id": "interface-JIssue-2ad67e2e730845288b7c32cd33171fce",
             "file": "src/app/interface/issue.ts",
             "type": "interface",
-            "sourceCode": "import { JComment } from './comment';\n\nexport enum IssueType {\n  STORY = 'Story',\n  TASK = 'Task',\n  BUG = 'Bug'\n}\n\nexport enum IssueStatus {\n  BACKLOG = 'Backlog',\n  SELECTED = 'Selected',\n  IN_PROGRESS = 'InProgress',\n  DONE = 'Done'\n}\n\nexport const IssueStatusDisplay = {\n  [IssueStatus.BACKLOG]: 'Backlog',\n  [IssueStatus.SELECTED]: 'Selected for Development',\n  [IssueStatus.IN_PROGRESS]: 'In progress',\n  [IssueStatus.DONE]: 'Done'\n};\n\nexport enum IssuePriority {\n  LOWEST = 'Lowest',\n  LOW = 'Low',\n  MEDIUM = 'Medium',\n  HIGH = 'High',\n  HIGHEST = 'Highest'\n}\n\nexport const IssuePriorityColors = {\n  [IssuePriority.HIGHEST]: '#CD1317',\n  [IssuePriority.HIGH]: '#E9494A',\n  [IssuePriority.MEDIUM]: '#E97F33',\n  [IssuePriority.LOW]: '#2D8738',\n  [IssuePriority.LOWEST]: '#57A55A'\n};\nexport interface JIssue {\n  id: string;\n  title: string;\n  type: IssueType;\n  status: IssueStatus;\n  priority: IssuePriority;\n  listPosition: number;\n  description: string;\n  estimate: number;\n  timeSpent: number;\n  timeRemaining: number;\n  createdAt: string;\n  updatedAt: string;\n  reporterId: string;\n  userIds: string[];\n  comments: JComment[];\n  projectId: string;\n}\n",
+            "sourceCode": "import { JComment } from './comment';\n\n/* eslint-disable no-shadow */\nexport enum IssueType {\n  STORY = 'Story',\n  TASK = 'Task',\n  BUG = 'Bug'\n}\n\nexport enum IssueStatus {\n  BACKLOG = 'Backlog',\n  SELECTED = 'Selected',\n  // eslint-disable-next-line @typescript-eslint/naming-convention\n  IN_PROGRESS = 'InProgress',\n  DONE = 'Done'\n}\n\nexport const IssueStatusDisplay = {\n  [IssueStatus.BACKLOG]: 'Backlog',\n  [IssueStatus.SELECTED]: 'Selected for Development',\n  [IssueStatus.IN_PROGRESS]: 'In progress',\n  [IssueStatus.DONE]: 'Done'\n};\n\nexport enum IssuePriority {\n  LOWEST = 'Lowest',\n  LOW = 'Low',\n  MEDIUM = 'Medium',\n  HIGH = 'High',\n  HIGHEST = 'Highest'\n}\n\nexport const IssuePriorityColors = {\n  [IssuePriority.HIGHEST]: '#CD1317',\n  [IssuePriority.HIGH]: '#E9494A',\n  [IssuePriority.MEDIUM]: '#E97F33',\n  [IssuePriority.LOW]: '#2D8738',\n  [IssuePriority.LOWEST]: '#57A55A'\n};\nexport interface JIssue {\n  id: string;\n  title: string;\n  type: IssueType;\n  status: IssueStatus;\n  priority: IssuePriority;\n  listPosition: number;\n  description: string;\n  estimate: number;\n  timeSpent: number;\n  timeRemaining: number;\n  createdAt: string;\n  updatedAt: string;\n  reporterId: string;\n  userIds: string[];\n  comments: JComment[];\n  projectId: string;\n}\n/* eslint-enable no-shadow */\n",
             "properties": [
                 {
                     "name": "comments",
                     "type": "JComment[]",
                     "optional": false,
                     "description": "",
-                    "line": 53
+                    "line": 56
                 },
                 {
                     "name": "createdAt",
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 49
+                    "line": 52
                 },
                 {
                     "name": "description",
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 45
+                    "line": 48
                 },
                 {
                     "name": "estimate",
                     "type": "number",
                     "optional": false,
                     "description": "",
-                    "line": 46
+                    "line": 49
                 },
                 {
                     "name": "id",
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 39
+                    "line": 42
                 },
                 {
                     "name": "listPosition",
                     "type": "number",
                     "optional": false,
                     "description": "",
-                    "line": 44
+                    "line": 47
                 },
                 {
                     "name": "priority",
                     "type": "IssuePriority",
                     "optional": false,
                     "description": "",
-                    "line": 43
+                    "line": 46
                 },
                 {
                     "name": "projectId",
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 54
+                    "line": 57
                 },
                 {
                     "name": "reporterId",
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 51
+                    "line": 54
                 },
                 {
                     "name": "status",
                     "type": "IssueStatus",
                     "optional": false,
                     "description": "",
-                    "line": 42
+                    "line": 45
                 },
                 {
                     "name": "timeRemaining",
                     "type": "number",
                     "optional": false,
                     "description": "",
-                    "line": 48
+                    "line": 51
                 },
                 {
                     "name": "timeSpent",
                     "type": "number",
                     "optional": false,
                     "description": "",
-                    "line": 47
+                    "line": 50
                 },
                 {
                     "name": "title",
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 40
+                    "line": 43
                 },
                 {
                     "name": "type",
                     "type": "IssueType",
                     "optional": false,
                     "description": "",
-                    "line": 41
+                    "line": 44
                 },
                 {
                     "name": "updatedAt",
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 50
+                    "line": 53
                 },
                 {
                     "name": "userIds",
                     "type": "string[]",
                     "optional": false,
                     "description": "",
-                    "line": 52
+                    "line": 55
                 }
             ],
             "indexSignatures": [],
@@ -233,10 +233,10 @@
         },
         {
             "name": "JProject",
-            "id": "interface-JProject-1cf30876bbb3a088d4b5b6da1244de47",
+            "id": "interface-JProject-bbb1aa756e0d790d4754ade8d8b946f2",
             "file": "src/app/interface/project.ts",
             "type": "interface",
-            "sourceCode": "import { JIssue } from './issue';\nimport { JUser } from './user';\n\nexport interface JProject {\n  id: string;\n  name: string;\n  url: string;\n  description: string;\n  category: ProjectCategory;\n  createdAt: string;\n  updateAt: string;\n  issues: JIssue[];\n  users: JUser[];\n}\n\nexport enum ProjectCategory {\n  SOFTWARE = 'Software',\n  MARKETING = 'Marketing',\n  BUSINESS = 'Business'\n}\n",
+            "sourceCode": "import { JIssue } from './issue';\nimport { JUser } from './user';\n\nexport interface JProject {\n  id: string;\n  name: string;\n  url: string;\n  description: string;\n  category: ProjectCategory;\n  createdAt: string;\n  updateAt: string;\n  issues: JIssue[];\n  users: JUser[];\n}\n\n// eslint-disable-next-line no-shadow\nexport enum ProjectCategory {\n  SOFTWARE = 'Software',\n  MARKETING = 'Marketing',\n  BUSINESS = 'Business'\n}\n",
             "properties": [
                 {
                     "name": "category",
@@ -366,23 +366,12 @@
             "indexSignatures": [],
             "kind": 150,
             "methods": []
-        },
-        {
-            "name": "ProjectState",
-            "id": "interface-ProjectState-d58ea2017d2feb69d516eef24e846b30",
-            "file": "src/app/project/state/project/project.store.ts",
-            "type": "interface",
-            "sourceCode": "import { JProject } from '@trungk18/interface/project';\nimport { Store, StoreConfig } from '@datorama/akita';\nimport { Injectable } from '@angular/core';\n\nexport interface ProjectState extends JProject {}\n\nfunction createInitialState(): ProjectState {\n  return {\n    issues: [],\n    users: []\n  } as ProjectState;\n}\n\n@Injectable({\n  providedIn: 'root'\n})\n@StoreConfig({\n  name: 'project'\n})\nexport class ProjectStore extends Store<ProjectState> {\n  constructor() {\n    super(createInitialState());\n  }\n}\n",
-            "properties": [],
-            "indexSignatures": [],
-            "methods": [],
-            "extends": "JProject"
         }
     ],
     "injectables": [
         {
             "name": "AuthQuery",
-            "id": "injectable-AuthQuery-45e7b85ed585785ad8c46da1cb311e80",
+            "id": "injectable-AuthQuery-980bacd8dbdf606998c6e9073837782d",
             "file": "src/app/project/auth/auth.query.ts",
             "properties": [
                 {
@@ -391,7 +380,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 11
+                    "line": 7
                 },
                 {
                     "name": "userId$",
@@ -399,12 +388,12 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 12
+                    "line": 8
                 }
             ],
             "methods": [],
             "description": "",
-            "sourceCode": "import { Injectable } from '@angular/core';\nimport { AuthStore, AuthState } from './auth.store';\nimport { Query } from '@datorama/akita';\n\n@Injectable({ providedIn: 'root' })\nexport class AuthQuery extends Query<AuthState> {\n  constructor(protected store: AuthStore) {\n    super(store);\n  }\n\n  user$ = this.select();\n  userId$ = this.select('id');\n}\n",
+            "sourceCode": "import { Injectable } from '@angular/core';\nimport { AuthStore, AuthState } from './auth.store';\nimport { Query } from '@datorama/akita';\n\n@Injectable({ providedIn: 'root' })\nexport class AuthQuery extends Query<AuthState> {\n  user$ = this.select();\n  userId$ = this.select('id');\n\n  constructor(protected store: AuthStore) {\n    super(store);\n  }\n}\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -414,7 +403,7 @@
                         "type": "AuthStore"
                     }
                 ],
-                "line": 6,
+                "line": 8,
                 "jsdoctags": [
                     {
                         "name": "store",
@@ -520,7 +509,7 @@
         },
         {
             "name": "FilterQuery",
-            "id": "injectable-FilterQuery-8121d38b9231121af2f70b638b15850b",
+            "id": "injectable-FilterQuery-4cc554b0304321f0db2bd3e671639e28",
             "file": "src/app/project/state/filter/filter.query.ts",
             "properties": [
                 {
@@ -529,15 +518,15 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 14
+                    "line": 11
                 },
                 {
                     "name": "any$",
-                    "defaultValue": "this.select(({ searchTerm, userIds, onlyMyIssue, ignoreResolved }) => {\n    return !!searchTerm || !!userIds?.length || onlyMyIssue || ignoreResolved;\n  })",
+                    "defaultValue": "this.select(\n    ({ searchTerm, userIds, onlyMyIssue, ignoreResolved }) =>\n      !!searchTerm || !!userIds?.length || onlyMyIssue || ignoreResolved\n  )",
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 11
+                    "line": 7
                 },
                 {
                     "name": "ignoreResolve$",
@@ -545,7 +534,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 17
+                    "line": 14
                 },
                 {
                     "name": "onlyMyIssue$",
@@ -553,7 +542,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 16
+                    "line": 13
                 },
                 {
                     "name": "userIds$",
@@ -561,12 +550,12 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 15
+                    "line": 12
                 }
             ],
             "methods": [],
             "description": "",
-            "sourceCode": "import { Injectable } from '@angular/core';\nimport { Query } from '@datorama/akita';\nimport { FilterStore, FilterState } from './filter.store';\n\n@Injectable({ providedIn: 'root' })\nexport class FilterQuery extends Query<FilterState> {\n  constructor(protected store: FilterStore) {\n    super(store);\n  }\n\n  any$ = this.select(({ searchTerm, userIds, onlyMyIssue, ignoreResolved }) => {\n    return !!searchTerm || !!userIds?.length || onlyMyIssue || ignoreResolved;\n  });\n  all$ = this.select();\n  userIds$ = this.select('userIds');\n  onlyMyIssue$ = this.select('onlyMyIssue');\n  ignoreResolve$ = this.select('ignoreResolved');\n}\n",
+            "sourceCode": "import { Injectable } from '@angular/core';\nimport { Query } from '@datorama/akita';\nimport { FilterStore, FilterState } from './filter.store';\n\n@Injectable({ providedIn: 'root' })\nexport class FilterQuery extends Query<FilterState> {\n  any$ = this.select(\n    ({ searchTerm, userIds, onlyMyIssue, ignoreResolved }) =>\n      !!searchTerm || !!userIds?.length || onlyMyIssue || ignoreResolved\n  );\n  all$ = this.select();\n  userIds$ = this.select('userIds');\n  onlyMyIssue$ = this.select('onlyMyIssue');\n  ignoreResolve$ = this.select('ignoreResolved');\n\n  constructor(protected store: FilterStore) {\n    super(store);\n  }\n}\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -576,7 +565,7 @@
                         "type": "FilterStore"
                     }
                 ],
-                "line": 6,
+                "line": 14,
                 "jsdoctags": [
                     {
                         "name": "store",
@@ -708,7 +697,7 @@
         },
         {
             "name": "GoogleAnalyticsService",
-            "id": "injectable-GoogleAnalyticsService-9088c886dc4afa5810bfb1ecfcb12add",
+            "id": "injectable-GoogleAnalyticsService-167021bb8d7dffc56cc329ce84b3c3d7",
             "file": "src/app/core/services/google-analytics.service.ts",
             "properties": [
                 {
@@ -742,7 +731,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 31,
+                    "line": 33,
                     "modifierKind": [
                         114
                     ],
@@ -758,7 +747,7 @@
                 }
             ],
             "description": "",
-            "sourceCode": "import { Injectable } from '@angular/core';\ndeclare var gtag: any;\nconst GOOGLE_ANALYTICS_ID = 'UA-80363801-4';\n@Injectable({\n  providedIn: 'root'\n})\nexport class GoogleAnalyticsService {\n  gtag: any;\n  constructor() {\n    if (typeof gtag !== 'undefined') {\n      this.gtag = gtag;\n    }\n  }\n\n  public sendEvent = (\n    eventName: string,\n    eventCategory: string,\n    eventLabel: string = null,\n    eventValue: number = null\n  ) => {\n    if (!this.gtag) {\n      return;\n    }\n    this.gtag('event', eventName, {\n      event_category: eventCategory,\n      event_label: eventLabel,\n      value: eventValue\n    });\n  }\n\n  public sendPageView(url: string) {\n    if (!this.gtag) {\n      return;\n    }\n    this.gtag('config', GOOGLE_ANALYTICS_ID, { page_path: url });\n  }\n}\n",
+            "sourceCode": "import { Injectable } from '@angular/core';\ndeclare const gtag: any;\nconst GOOGLE_ANALYTICS_ID = 'UA-80363801-4';\n@Injectable({\n  providedIn: 'root'\n})\nexport class GoogleAnalyticsService {\n  gtag: any;\n  constructor() {\n    if (typeof gtag !== 'undefined') {\n      this.gtag = gtag;\n    }\n  }\n\n  public sendEvent = (\n    eventName: string,\n    eventCategory: string,\n    eventLabel: string = null,\n    eventValue: number = null\n  ) => {\n    if (!this.gtag) {\n      return;\n    }\n    this.gtag('event', eventName, {\n      /* eslint-disable @typescript-eslint/naming-convention */\n      event_category: eventCategory,\n      event_label: eventLabel,\n      /* eslint-enable @typescript-eslint/naming-convention */\n      value: eventValue\n    });\n  };\n\n  public sendPageView(url: string) {\n    if (!this.gtag) {\n      return;\n    }\n    // eslint-disable-next-line @typescript-eslint/naming-convention\n    this.gtag('config', GOOGLE_ANALYTICS_ID, { page_path: url });\n  }\n}\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -769,7 +758,7 @@
         },
         {
             "name": "ProjectQuery",
-            "id": "injectable-ProjectQuery-5043c96ae676ad526dce8352ec24bc70",
+            "id": "injectable-ProjectQuery-edb694f84c036d1b6ba81669048bd799",
             "file": "src/app/project/state/project/project.query.ts",
             "properties": [
                 {
@@ -778,7 +767,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 15
+                    "line": 12
                 },
                 {
                     "name": "isLoading$",
@@ -786,7 +775,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 14
+                    "line": 11
                 },
                 {
                     "name": "issueByStatusSorted$",
@@ -794,7 +783,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 25
+                    "line": 26
                 },
                 {
                     "name": "issues$",
@@ -802,7 +791,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 16
+                    "line": 13
                 },
                 {
                     "name": "lastIssuePosition",
@@ -810,7 +799,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 19
+                    "line": 20
                 },
                 {
                     "name": "users$",
@@ -818,7 +807,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 17
+                    "line": 14
                 }
             ],
             "methods": [
@@ -833,7 +822,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 35,
+                    "line": 32,
                     "jsdoctags": [
                         {
                             "name": "issueId",
@@ -846,7 +835,7 @@
                 }
             ],
             "description": "",
-            "sourceCode": "import { ProjectState, ProjectStore } from './project.store';\nimport { Injectable } from '@angular/core';\nimport { Query } from '@datorama/akita';\nimport { IssueStatus, JIssue } from '@trungk18/interface/issue';\nimport { map, delay } from 'rxjs/operators';\nimport { Observable } from 'rxjs';\n@Injectable({\n  providedIn: 'root'\n})\nexport class ProjectQuery extends Query<ProjectState> {\n  constructor(protected store: ProjectStore) {\n    super(store);\n  }\n  isLoading$ = this.selectLoading();\n  all$ = this.select();\n  issues$ = this.select('issues');\n  users$ = this.select('users');\n\n  lastIssuePosition = (status: IssueStatus): number => {\n    const raw = this.store.getValue();\n    const issuesByStatus = raw.issues.filter(x => x.status === status);\n    return issuesByStatus.length;\n  }\n\n  issueByStatusSorted$ = (status: IssueStatus): Observable<JIssue[]> => {\n    return this.issues$.pipe(\n      map((issues) => {\n        return issues\n          .filter((x) => x.status === status)\n          .sort((a, b) => a.listPosition - b.listPosition);\n      })\n    );\n  }\n\n  issueById$(issueId: string){\n    return this.issues$.pipe(\n      delay(500),\n      map((issues) => {\n        return issues.find(x => x.id === issueId);\n      })\n    );\n  }\n}\n",
+            "sourceCode": "import { ProjectState, ProjectStore } from './project.store';\nimport { Injectable } from '@angular/core';\nimport { Query } from '@datorama/akita';\nimport { IssueStatus, JIssue } from '@trungk18/interface/issue';\nimport { map, delay } from 'rxjs/operators';\nimport { Observable } from 'rxjs';\n@Injectable({\n  providedIn: 'root'\n})\nexport class ProjectQuery extends Query<ProjectState> {\n  isLoading$ = this.selectLoading();\n  all$ = this.select();\n  issues$ = this.select('issues');\n  users$ = this.select('users');\n\n  constructor(protected store: ProjectStore) {\n    super(store);\n  }\n\n  lastIssuePosition = (status: IssueStatus): number => {\n    const raw = this.store.getValue();\n    const issuesByStatus = raw.issues.filter(x => x.status === status);\n    return issuesByStatus.length;\n  };\n\n  issueByStatusSorted$ = (status: IssueStatus): Observable<JIssue[]> => this.issues$.pipe(\n      map((issues) => issues\n          .filter((x) => x.status === status)\n          .sort((a, b) => a.listPosition - b.listPosition))\n    );\n\n  issueById$(issueId: string){\n    return this.issues$.pipe(\n      delay(500),\n      map((issues) => issues.find(x => x.id === issueId))\n    );\n  }\n}\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -856,7 +845,7 @@
                         "type": "ProjectStore"
                     }
                 ],
-                "line": 10,
+                "line": 14,
                 "jsdoctags": [
                     {
                         "name": "store",
@@ -872,7 +861,7 @@
         },
         {
             "name": "ProjectService",
-            "id": "injectable-ProjectService-1a8ef3c3bb947d62d7043d9a2f1fc068",
+            "id": "injectable-ProjectService-a30b9a1295b2515cb917c6ca588e3b18",
             "file": "src/app/project/state/project/project.service.ts",
             "properties": [
                 {
@@ -895,7 +884,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 66,
+                    "line": 64,
                     "jsdoctags": [
                         {
                             "name": "issueId",
@@ -947,7 +936,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 55,
+                    "line": 53,
                     "jsdoctags": [
                         {
                             "name": "issue",
@@ -973,7 +962,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 76,
+                    "line": 74,
                     "jsdoctags": [
                         {
                             "name": "issueId",
@@ -1002,7 +991,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 48,
+                    "line": 46,
                     "jsdoctags": [
                         {
                             "name": "project",
@@ -1015,7 +1004,7 @@
                 }
             ],
             "description": "",
-            "sourceCode": "import { HttpClient } from '@angular/common/http';\nimport { Injectable } from '@angular/core';\nimport { arrayRemove, arrayUpsert, setLoading } from '@datorama/akita';\nimport { JComment } from '@trungk18/interface/comment';\nimport { JIssue } from '@trungk18/interface/issue';\nimport { JProject } from '@trungk18/interface/project';\nimport { DateUtil } from '@trungk18/project/utils/date';\nimport { of } from 'rxjs';\nimport { catchError, tap } from 'rxjs/operators';\nimport { environment } from 'src/environments/environment';\nimport { ProjectStore } from './project.store';\n\n@Injectable({\n  providedIn: 'root'\n})\nexport class ProjectService {\n  baseUrl: string;\n\n  constructor(private _http: HttpClient, private _store: ProjectStore) {\n    this.baseUrl = environment.apiUrl;\n  }\n\n  setLoading(isLoading: boolean) {\n    this._store.setLoading(isLoading);\n  }\n\n  getProject() {\n    this._http\n      .get<JProject>(`${this.baseUrl}/project.json`)\n      .pipe(\n        setLoading(this._store),\n        tap((project) => {\n          this._store.update((state) => {\n            return {\n              ...state,\n              ...project\n            };\n          });\n        }),\n        catchError((error) => {\n          this._store.setError(error);\n          return of(error);\n        })\n      )\n      .subscribe();\n  }\n\n  updateProject(project: Partial<JProject>) {\n    this._store.update((state) => ({\n      ...state,\n      ...project\n    }));\n  }\n\n  updateIssue(issue: JIssue) {\n    issue.updatedAt = DateUtil.getNow();\n    this._store.update((state) => {\n      const issues = arrayUpsert(state.issues, issue.id, issue);\n      return {\n        ...state,\n        issues\n      };\n    });\n  }\n\n  deleteIssue(issueId: string) {\n    this._store.update((state) => {\n      const issues = arrayRemove(state.issues, issueId);\n      return {\n        ...state,\n        issues\n      };\n    });\n  }\n\n  updateIssueComment(issueId: string, comment: JComment) {\n    const allIssues = this._store.getValue().issues;\n    const issue = allIssues.find((x) => x.id === issueId);\n    if (!issue) {\n      return;\n    }\n\n    const comments = arrayUpsert(issue.comments ?? [], comment.id, comment);\n    this.updateIssue({\n      ...issue,\n      comments\n    });\n  }\n}\n",
+            "sourceCode": "import { HttpClient } from '@angular/common/http';\nimport { Injectable } from '@angular/core';\nimport { arrayRemove, arrayUpsert, setLoading } from '@datorama/akita';\nimport { JComment } from '@trungk18/interface/comment';\nimport { JIssue } from '@trungk18/interface/issue';\nimport { JProject } from '@trungk18/interface/project';\nimport { DateUtil } from '@trungk18/project/utils/date';\nimport { of } from 'rxjs';\nimport { catchError, tap } from 'rxjs/operators';\nimport { environment } from 'src/environments/environment';\nimport { ProjectStore } from './project.store';\n\n@Injectable({\n  providedIn: 'root'\n})\nexport class ProjectService {\n  baseUrl: string;\n\n  constructor(private _http: HttpClient, private _store: ProjectStore) {\n    this.baseUrl = environment.apiUrl;\n  }\n\n  setLoading(isLoading: boolean) {\n    this._store.setLoading(isLoading);\n  }\n\n  getProject() {\n    this._http\n      .get<JProject>(`${this.baseUrl}/project.json`)\n      .pipe(\n        setLoading(this._store),\n        tap((project) => {\n          this._store.update((state) => ({\n              ...state,\n              ...project\n            }));\n        }),\n        catchError((error) => {\n          this._store.setError(error);\n          return of(error);\n        })\n      )\n      .subscribe();\n  }\n\n  updateProject(project: Partial<JProject>) {\n    this._store.update((state) => ({\n      ...state,\n      ...project\n    }));\n  }\n\n  updateIssue(issue: JIssue) {\n    issue.updatedAt = DateUtil.getNow();\n    this._store.update((state) => {\n      const issues = arrayUpsert(state.issues, issue.id, issue);\n      return {\n        ...state,\n        issues\n      };\n    });\n  }\n\n  deleteIssue(issueId: string) {\n    this._store.update((state) => {\n      const issues = arrayRemove(state.issues, issueId);\n      return {\n        ...state,\n        issues\n      };\n    });\n  }\n\n  updateIssueComment(issueId: string, comment: JComment) {\n    const allIssues = this._store.getValue().issues;\n    const issue = allIssues.find((x) => x.id === issueId);\n    if (!issue) {\n      return;\n    }\n\n    const comments = arrayUpsert(issue.comments ?? [], comment.id, comment);\n    this.updateIssue({\n      ...issue,\n      comments\n    });\n  }\n}\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -1051,12 +1040,12 @@
         },
         {
             "name": "ProjectStore",
-            "id": "injectable-ProjectStore-d58ea2017d2feb69d516eef24e846b30",
+            "id": "injectable-ProjectStore-377be6639e74ee2d89eccd7610db373c",
             "file": "src/app/project/state/project/project.store.ts",
             "properties": [],
             "methods": [],
             "description": "",
-            "sourceCode": "import { JProject } from '@trungk18/interface/project';\nimport { Store, StoreConfig } from '@datorama/akita';\nimport { Injectable } from '@angular/core';\n\nexport interface ProjectState extends JProject {}\n\nfunction createInitialState(): ProjectState {\n  return {\n    issues: [],\n    users: []\n  } as ProjectState;\n}\n\n@Injectable({\n  providedIn: 'root'\n})\n@StoreConfig({\n  name: 'project'\n})\nexport class ProjectStore extends Store<ProjectState> {\n  constructor() {\n    super(createInitialState());\n  }\n}\n",
+            "sourceCode": "import { JProject } from '@trungk18/interface/project';\nimport { Store, StoreConfig } from '@datorama/akita';\nimport { Injectable } from '@angular/core';\n\nexport type ProjectState = JProject;\n\nfunction createInitialState(): ProjectState {\n  return {\n    issues: [],\n    users: []\n  } as ProjectState;\n}\n\n@Injectable({\n  providedIn: 'root'\n})\n@StoreConfig({\n  name: 'project'\n})\nexport class ProjectStore extends Store<ProjectState> {\n  constructor() {\n    super(createInitialState());\n  }\n}\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -1249,10 +1238,10 @@
         },
         {
             "name": "IssueStatusValueTitle",
-            "id": "class-IssueStatusValueTitle-ea607f15ec592d16f5e9fff2e7116945",
+            "id": "class-IssueStatusValueTitle-781cc8c821b4898c7d51140b1ffa0134",
             "file": "src/app/project/components/issues/issue-status/issue-status.component.ts",
             "type": "class",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { IssueStatus, IssueStatusDisplay, JIssue } from '@trungk18/interface/issue';\nimport { ProjectService } from '@trungk18/project/state/project/project.service';\nimport { ProjectQuery } from '@trungk18/project/state/project/project.query';\n\n@Component({\n  selector: 'issue-status',\n  templateUrl: './issue-status.component.html',\n  styleUrls: ['./issue-status.component.scss']\n})\nexport class IssueStatusComponent implements OnInit {\n  @Input() issue: JIssue;\n  IssueStatusDisplay = IssueStatusDisplay;\n\n  variants = {\n    [IssueStatus.BACKLOG]: 'btn-secondary',\n    [IssueStatus.SELECTED]: 'btn-secondary',\n    [IssueStatus.IN_PROGRESS]: 'btn-primary',\n    [IssueStatus.DONE]: 'btn-success'\n  };\n\n  issueStatuses: IssueStatusValueTitle[];\n\n  constructor(private _projectService: ProjectService, private _projectQuery: ProjectQuery) {}\n\n  ngOnInit(): void {\n    this.issueStatuses = [\n      new IssueStatusValueTitle(IssueStatus.BACKLOG),\n      new IssueStatusValueTitle(IssueStatus.SELECTED),\n      new IssueStatusValueTitle(IssueStatus.IN_PROGRESS),\n      new IssueStatusValueTitle(IssueStatus.DONE)\n    ];\n  }\n\n  updateIssue(status: IssueStatus) {\n    const newPosition = this._projectQuery.lastIssuePosition(status);\n    this._projectService.updateIssue({\n      ...this.issue,\n      status,\n      listPosition: newPosition + 1\n    });\n  }\n\n  isStatusSelected(status: IssueStatus) {\n    return this.issue.status === status;\n  }\n}\n\nclass IssueStatusValueTitle {\n  value: IssueStatus;\n  label: string;\n  constructor(issueStatus: IssueStatus) {\n    this.value = issueStatus;\n    this.label = IssueStatusDisplay[issueStatus];\n  }\n}\n",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { IssueStatus, IssueStatusDisplay, JIssue } from '@trungk18/interface/issue';\nimport { ProjectService } from '@trungk18/project/state/project/project.service';\nimport { ProjectQuery } from '@trungk18/project/state/project/project.query';\n\n@Component({\n  selector: 'issue-status',\n  templateUrl: './issue-status.component.html',\n  styleUrls: ['./issue-status.component.scss']\n})\nexport class IssueStatusComponent implements OnInit {\n  @Input() issue: JIssue;\n  // eslint-disable-next-line @typescript-eslint/naming-convention\n  IssueStatusDisplay = IssueStatusDisplay;\n\n  variants = {\n    [IssueStatus.BACKLOG]: 'btn-secondary',\n    [IssueStatus.SELECTED]: 'btn-secondary',\n    [IssueStatus.IN_PROGRESS]: 'btn-primary',\n    [IssueStatus.DONE]: 'btn-success'\n  };\n\n  issueStatuses: IssueStatusValueTitle[];\n\n  constructor(private _projectService: ProjectService, private _projectQuery: ProjectQuery) {}\n\n  ngOnInit(): void {\n    this.issueStatuses = [\n      new IssueStatusValueTitle(IssueStatus.BACKLOG),\n      new IssueStatusValueTitle(IssueStatus.SELECTED),\n      new IssueStatusValueTitle(IssueStatus.IN_PROGRESS),\n      new IssueStatusValueTitle(IssueStatus.DONE)\n    ];\n  }\n\n  updateIssue(status: IssueStatus) {\n    const newPosition = this._projectQuery.lastIssuePosition(status);\n    this._projectService.updateIssue({\n      ...this.issue,\n      status,\n      listPosition: newPosition + 1\n    });\n  }\n\n  isStatusSelected(status: IssueStatus) {\n    return this.issue.status === status;\n  }\n}\n\nclass IssueStatusValueTitle {\n  value: IssueStatus;\n  label: string;\n  constructor(issueStatus: IssueStatus) {\n    this.value = issueStatus;\n    this.label = IssueStatusDisplay[issueStatus];\n  }\n}\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -1262,7 +1251,7 @@
                         "type": "IssueStatus"
                     }
                 ],
-                "line": 51,
+                "line": 52,
                 "jsdoctags": [
                     {
                         "name": "issueStatus",
@@ -1279,14 +1268,14 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 51
+                    "line": 52
                 },
                 {
                     "name": "value",
                     "type": "IssueStatus",
                     "optional": false,
                     "description": "",
-                    "line": 50
+                    "line": 51
                 }
             ],
             "methods": [],
@@ -1459,10 +1448,10 @@
         },
         {
             "name": "JComment",
-            "id": "class-JComment-2557c6ab623bcb19ca8af3a632e4837c",
+            "id": "class-JComment-1739e78fd4179e94c5e79c0a3e8e8a5f",
             "file": "src/app/interface/comment.ts",
             "type": "class",
-            "sourceCode": "import { JUser } from './user';\n\nexport class JComment {\n  constructor(issueId: string, user: JUser) {\n    const now = new Date();\n    this.id = `${now.getTime()}`;\n    this.issueId = issueId;\n    this.user = user;\n    this.createdAt = now.toISOString();\n    this.updatedAt = now.toISOString();\n  }\n\n  id: string;\n  body: string;\n  createdAt: string;\n  updatedAt: string;\n  issueId: string;\n  userId: string;\n  // mapped to display by userId\n  user: JUser;\n}\n",
+            "sourceCode": "import { JUser } from './user';\n\nexport class JComment {\n  id: string;\n  body: string;\n  createdAt: string;\n  updatedAt: string;\n  issueId: string;\n  userId: string;\n  // mapped to display by userId\n  user: JUser;\n\n  constructor(issueId: string, user: JUser) {\n    const now = new Date();\n    this.id = `${now.getTime()}`;\n    this.issueId = issueId;\n    this.user = user;\n    this.createdAt = now.toISOString();\n    this.updatedAt = now.toISOString();\n  }\n}\n",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
@@ -1476,7 +1465,7 @@
                         "type": "JUser"
                     }
                 ],
-                "line": 3,
+                "line": 11,
                 "jsdoctags": [
                     {
                         "name": "issueId",
@@ -1500,49 +1489,49 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 14
+                    "line": 5
                 },
                 {
                     "name": "createdAt",
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 15
+                    "line": 6
                 },
                 {
                     "name": "id",
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 13
+                    "line": 4
                 },
                 {
                     "name": "issueId",
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 17
+                    "line": 8
                 },
                 {
                     "name": "updatedAt",
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 16
+                    "line": 7
                 },
                 {
                     "name": "user",
                     "type": "JUser",
                     "optional": false,
                     "description": "",
-                    "line": 20
+                    "line": 11
                 },
                 {
                     "name": "userId",
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 18
+                    "line": 9
                 }
             ],
             "methods": [],
@@ -1676,10 +1665,10 @@
         },
         {
             "name": "ProjectConst",
-            "id": "class-ProjectConst-28ec508debc582de4c9f4f6aface78b9",
+            "id": "class-ProjectConst-66d0549e68625a33b8180e8ce1459d17",
             "file": "src/app/project/config/const.ts",
             "type": "class",
-            "sourceCode": "import { IssuePriorityIcon } from '@trungk18/interface/issue-priority-icon';\nimport { IssuePriority, IssueType } from '@trungk18/interface/issue';\nimport { IssueUtil } from '../utils/issue';\nimport { IssueTypeWithIcon } from '@trungk18/interface/issue-type-icon';\n\nexport class ProjectConst {\n  static readonly IssueId = 'issueId';\n  static readonly Projects = 'Projects';\n  static PrioritiesWithIcon: IssuePriorityIcon[] = [\n    IssueUtil.getIssuePriorityIcon(IssuePriority.LOWEST),\n    IssueUtil.getIssuePriorityIcon(IssuePriority.LOW),\n    IssueUtil.getIssuePriorityIcon(IssuePriority.MEDIUM),\n    IssueUtil.getIssuePriorityIcon(IssuePriority.HIGH),\n    IssueUtil.getIssuePriorityIcon(IssuePriority.HIGHEST)\n  ];\n\n  static IssueTypesWithIcon: IssueTypeWithIcon[] = [\n    new IssueTypeWithIcon(IssueType.BUG),\n    new IssueTypeWithIcon(IssueType.STORY),\n    new IssueTypeWithIcon(IssueType.TASK)\n  ];\n}\n",
+            "sourceCode": "import { IssuePriorityIcon } from '@trungk18/interface/issue-priority-icon';\nimport { IssuePriority, IssueType } from '@trungk18/interface/issue';\nimport { IssueUtil } from '../utils/issue';\nimport { IssueTypeWithIcon } from '@trungk18/interface/issue-type-icon';\n\nexport class ProjectConst {\n  /* eslint-disable @typescript-eslint/naming-convention */\n  static readonly IssueId = 'issueId';\n  static readonly Projects = 'Projects';\n  static PrioritiesWithIcon: IssuePriorityIcon[] = [\n    IssueUtil.getIssuePriorityIcon(IssuePriority.LOWEST),\n    IssueUtil.getIssuePriorityIcon(IssuePriority.LOW),\n    IssueUtil.getIssuePriorityIcon(IssuePriority.MEDIUM),\n    IssueUtil.getIssuePriorityIcon(IssuePriority.HIGH),\n    IssueUtil.getIssuePriorityIcon(IssuePriority.HIGHEST)\n  ];\n\n  static IssueTypesWithIcon: IssueTypeWithIcon[] = [\n    new IssueTypeWithIcon(IssueType.BUG),\n    new IssueTypeWithIcon(IssueType.STORY),\n    new IssueTypeWithIcon(IssueType.TASK)\n  ];\n  /* eslint-enable @typescript-eslint/naming-convention */\n}\n",
             "properties": [
                 {
                     "name": "IssueId",
@@ -1687,7 +1676,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 7,
+                    "line": 8,
                     "modifierKind": [
                         115,
                         132
@@ -1699,7 +1688,7 @@
                     "type": "IssueTypeWithIcon[]",
                     "optional": false,
                     "description": "",
-                    "line": 17,
+                    "line": 18,
                     "modifierKind": [
                         115
                     ]
@@ -1710,7 +1699,7 @@
                     "type": "IssuePriorityIcon[]",
                     "optional": false,
                     "description": "",
-                    "line": 9,
+                    "line": 10,
                     "modifierKind": [
                         115
                     ]
@@ -1721,7 +1710,7 @@
                     "type": "string",
                     "optional": false,
                     "description": "",
-                    "line": 8,
+                    "line": 9,
                     "modifierKind": [
                         115,
                         132
@@ -2135,7 +2124,7 @@
         },
         {
             "name": "AppComponent",
-            "id": "component-AppComponent-24478e46957da0d685d13f9d2000be4c",
+            "id": "component-AppComponent-18f37e351745df4a117454c244ea3282",
             "file": "src/app/app.component.ts",
             "encapsulation": [
                 "ViewEncapsulation.None"
@@ -2200,7 +2189,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, ViewEncapsulation, AfterViewInit, ChangeDetectorRef } from '@angular/core';\nimport { Router, NavigationEnd } from '@angular/router';\nimport { environment } from '../environments/environment';\nimport { ProjectQuery } from './project/state/project/project.query';\nimport { ProjectService } from './project/state/project/project.service';\nimport { GoogleAnalyticsService } from './core/services/google-analytics.service';\n\n@Component({\n  selector: 'app-root',\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.scss'],\n  encapsulation: ViewEncapsulation.None\n})\nexport class AppComponent implements AfterViewInit {\n  constructor(\n    public router: Router,\n    public projectQuery: ProjectQuery,\n    private _cdr: ChangeDetectorRef,\n    private _projectService: ProjectService,\n    private _googleAnalytics: GoogleAnalyticsService\n  ) {\n    this._projectService.setLoading(true);\n\n    if (environment.production) {\n      this.router.events.subscribe(this.handleGoogleAnalytics);\n    }\n  }\n\n  handleGoogleAnalytics = (event: any): void => {\n    if (event instanceof NavigationEnd) {\n      this._googleAnalytics.sendPageView(event.urlAfterRedirects);\n    }\n  }\n\n  ngAfterViewInit() {\n    this._cdr.detectChanges();\n  }\n}\n",
+            "sourceCode": "import { Component, ViewEncapsulation, AfterViewInit, ChangeDetectorRef } from '@angular/core';\nimport { Router, NavigationEnd } from '@angular/router';\nimport { environment } from '../environments/environment';\nimport { ProjectQuery } from './project/state/project/project.query';\nimport { ProjectService } from './project/state/project/project.service';\nimport { GoogleAnalyticsService } from './core/services/google-analytics.service';\n\n@Component({\n  selector: 'app-root',\n  templateUrl: './app.component.html',\n  styleUrls: ['./app.component.scss'],\n  encapsulation: ViewEncapsulation.None\n})\nexport class AppComponent implements AfterViewInit {\n  constructor(\n    public router: Router,\n    public projectQuery: ProjectQuery,\n    private _cdr: ChangeDetectorRef,\n    private _projectService: ProjectService,\n    private _googleAnalytics: GoogleAnalyticsService\n  ) {\n    this._projectService.setLoading(true);\n\n    if (environment.production) {\n      this.router.events.subscribe(this.handleGoogleAnalytics);\n    }\n  }\n\n  handleGoogleAnalytics = (event: any): void => {\n    if (event instanceof NavigationEnd) {\n      this._googleAnalytics.sendPageView(event.urlAfterRedirects);\n    }\n  };\n\n  ngAfterViewInit() {\n    this._cdr.detectChanges();\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -2427,7 +2416,7 @@
                     }
                 ]
             },
-            "templateData": "<div class=\"flex flex-col w-full h-full py-8 pl-8 pr-6\">\n    <breadcrumbs [items]=\"breadcrumbs\"></breadcrumbs>\n    <header class=\"flex justify-between mt-3 text-textDarkest\">\n        <div class=\"text-2xl font-medium\">Kanban board</div>\n        <div class=\"social-links\">\n            <a href=\"https://www.buymeacoffee.com/tuantrungvo\"\n               target=\"_blank\"\n               rel=\"noopener\">\n                <j-button className=\"btn-secondary mr-2\"> 🍺 Buy me a beer\n                </j-button>\n            </a>\n\n            <a href=\"https://tetris.trungk18.com/\"\n               target=\"_blank\"\n               rel=\"noopener\">\n                <j-button className=\"btn-secondary mr-2\"> 🎮 Angular Tetris\n                </j-button>\n            </a>\n\n            <a href=\"https://jira-storybook.trungk18.com/\"\n               target=\"_blank\"\n               rel=\"noopener\">\n                <j-button className=\"btn-secondary mr-2\"> 📕 Storybook\n                </j-button>\n            </a>\n\n            <a href=\"https://twitter.com/intent/tweet?url=https%3A%2F%2Fgithub.com%2Ftrungk18%2Fjira-clone-angular&text=Awesome%20Jira%20clone%20app%20built%20with%20Angular%209%20and%20Akita&hashtags=angular,akita,typescript\"\n               (click)=\"sendTwitterEventButton()\"\n               target=\"_blank\"\n               rel=\"noopener\"\n               class=\"mr-2\">\n                <j-button className=\"btn-secondary\">\n                    <div class=\"flex items-center\">\n                        <i class=\"mr-2 text-blue-500\"\n                           nz-icon\n                           nzType=\"twitter\"\n                           nzTheme=\"outline\"></i> Tweet\n                    </div>\n                </j-button>\n            </a>\n            <a href=\"https://github.com/trungk18/jira-clone-angular\"\n               target=\"_blank\"\n               rel=\"noopener\">\n                <j-button className=\"btn-secondary\"\n                          icon=\"github\">Source Code\n                </j-button>\n            </a>\n        </div>\n    </header>\n\n    <board-filter></board-filter>\n    <board-dnd></board-dnd>\n</div>"
+            "templateData": "<div class=\"flex flex-col w-full h-full py-8 pl-8 pr-6\">\n    <breadcrumbs [items]=\"breadcrumbs\"></breadcrumbs>\n    <header class=\"flex justify-between mt-3 text-textDarkest\">\n        <div class=\"text-2xl font-medium\">Kanban board</div>\n        <div class=\"social-links\">\n            <a href=\"https://www.buymeacoffee.com/tuantrungvo\"\n               target=\"_blank\"\n               rel=\"noopener\">\n                <j-button className=\"btn-secondary mr-2\"> 🍺 Support\n                </j-button>\n            </a>\n\n            <a href=\"https://github.com/trungk18/angular-spotify\"\n               target=\"_blank\"\n               rel=\"noopener\">\n                <j-button className=\"btn-secondary mr-2\"> 🎧 Spotify\n                </j-button>\n            </a>\n\n            <a href=\"https://tetris.trungk18.com/\"\n               target=\"_blank\"\n               rel=\"noopener\">\n                <j-button className=\"btn-secondary mr-2\"> 🎮 Tetris\n                </j-button>\n            </a>\n\n            <a href=\"https://jira-storybook.trungk18.com/\"\n               target=\"_blank\"\n               rel=\"noopener\">\n                <j-button className=\"btn-secondary mr-2\"> 📕 Storybook\n                </j-button>\n            </a>\n\n            <a href=\"https://twitter.com/intent/tweet?url=https%3A%2F%2Fgithub.com%2Ftrungk18%2Fjira-clone-angular&text=Awesome%20Jira%20clone%20app%20built%20with%20Angular%209%20and%20Akita&hashtags=angular,akita,typescript\"\n               (click)=\"sendTwitterEventButton()\"\n               target=\"_blank\"\n               rel=\"noopener\"\n               class=\"mr-2\">\n                <j-button className=\"btn-secondary\">\n                    <div class=\"flex items-center\">\n                        <i class=\"mr-2 text-blue-500\"\n                           nz-icon\n                           nzType=\"twitter\"\n                           nzTheme=\"outline\"></i> Tweet\n                    </div>\n                </j-button>\n            </a>\n            <a href=\"https://github.com/trungk18/jira-clone-angular\"\n               target=\"_blank\"\n               rel=\"noopener\">\n                <j-button className=\"btn-secondary\"\n                          icon=\"github\">Source Code\n                </j-button>\n            </a>\n        </div>\n    </header>\n\n    <board-filter></board-filter>\n    <board-dnd></board-dnd>\n</div>"
         },
         {
             "name": "BoardDndComponent",
@@ -2525,7 +2514,7 @@
         },
         {
             "name": "BoardDndListComponent",
-            "id": "component-BoardDndListComponent-9585bf7e476e94fb658c08920d45ce0c",
+            "id": "component-BoardDndListComponent-804e94d7bf143a1de883ec6010112f73",
             "file": "src/app/project/components/board/board-dnd-list/board-dnd-list.component.ts",
             "encapsulation": [
                 "ViewEncapsulation.None"
@@ -2546,17 +2535,17 @@
             "inputsClass": [
                 {
                     "name": "currentUserId",
-                    "line": 22,
+                    "line": 21,
                     "type": "string"
                 },
                 {
                     "name": "issues$",
-                    "line": 23,
+                    "line": 22,
                     "type": "Observable<JIssue[]>"
                 },
                 {
                     "name": "status",
-                    "line": 21,
+                    "line": 20,
                     "type": "IssueStatus"
                 }
             ],
@@ -2568,7 +2557,7 @@
                     "type": "JIssue[]",
                     "optional": false,
                     "description": "",
-                    "line": 24
+                    "line": 26
                 },
                 {
                     "name": "IssueStatusDisplay",
@@ -2576,7 +2565,7 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 20
+                    "line": 25
                 }
             ],
             "methodsClass": [
@@ -2591,7 +2580,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 40,
+                    "line": 42,
                     "jsdoctags": [
                         {
                             "name": "event",
@@ -2617,7 +2606,7 @@
                     "optional": false,
                     "returnType": "JIssue[]",
                     "typeParameters": [],
-                    "line": 66,
+                    "line": 61,
                     "jsdoctags": [
                         {
                             "name": "issues",
@@ -2646,7 +2635,7 @@
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 87,
+                    "line": 80,
                     "jsdoctags": [
                         {
                             "name": "date",
@@ -2663,7 +2652,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 32
+                    "line": 34
                 },
                 {
                     "name": "updateListPosition",
@@ -2676,7 +2665,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 59,
+                    "line": 86,
                     "modifierKind": [
                         112
                     ],
@@ -2696,7 +2685,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';\nimport { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';\nimport { IssueStatus, IssueStatusDisplay, JIssue } from '@trungk18/interface/issue';\nimport { FilterState } from '@trungk18/project/state/filter/filter.store';\nimport { ProjectService } from '@trungk18/project/state/project/project.service';\nimport { Observable, combineLatest } from 'rxjs';\nimport { untilDestroyed, UntilDestroy } from '@ngneat/until-destroy';\nimport { FilterQuery } from '@trungk18/project/state/filter/filter.query';\nimport * as dateFns from 'date-fns';\nimport { IssueUtil } from '@trungk18/project/utils/issue';\n\n@Component({\n  selector: '[board-dnd-list]',\n  templateUrl: './board-dnd-list.component.html',\n  styleUrls: ['./board-dnd-list.component.scss'],\n  encapsulation: ViewEncapsulation.None\n})\n@UntilDestroy()\nexport class BoardDndListComponent implements OnInit {\n  IssueStatusDisplay = IssueStatusDisplay;\n  @Input() status: IssueStatus;\n  @Input() currentUserId: string;\n  @Input() issues$: Observable<JIssue[]>;\n  issues: JIssue[] = [];\n\n  get issuesCount(): number {\n    return this.issues.length;\n  }\n\n  constructor(private _projectService: ProjectService, private _filterQuery: FilterQuery) {}\n\n  ngOnInit(): void {\n    combineLatest([this.issues$, this._filterQuery.all$])\n      .pipe(untilDestroyed(this))\n      .subscribe(([issues, filter]) => {\n        this.issues = this.filterIssues(issues, filter);\n      });\n  }\n\n  drop(event: CdkDragDrop<JIssue[]>) {\n    const newIssue: JIssue = { ...event.item.data };\n    const newIssues = [...event.container.data];\n    if (event.previousContainer === event.container) {\n      moveItemInArray(newIssues, event.previousIndex, event.currentIndex);\n      this.updateListPosition(newIssues);\n    } else {\n      transferArrayItem(\n        event.previousContainer.data,\n        newIssues,\n        event.previousIndex,\n        event.currentIndex\n      );\n      this.updateListPosition(newIssues);\n      newIssue.status = event.container.id as IssueStatus;\n      this._projectService.updateIssue(newIssue);\n    }\n  }\n\n  private updateListPosition(newList: JIssue[]) {\n    newList.forEach((issue, idx) => {\n      const newIssueWithNewPosition = { ...issue, listPosition: idx + 1 };\n      this._projectService.updateIssue(newIssueWithNewPosition);\n    });\n  }\n\n  filterIssues(issues: JIssue[], filter: FilterState): JIssue[] {\n    const { onlyMyIssue, ignoreResolved, searchTerm, userIds } = filter;\n    return issues.filter((issue) => {\n      const isMatchTerm = searchTerm\n        ? IssueUtil.searchString(issue.title, searchTerm)\n        : true;\n\n      const isIncludeUsers = userIds.length\n        ? issue.userIds.some((userId) => userIds.includes(userId))\n        : true;\n\n      const isMyIssue = onlyMyIssue\n        ? this.currentUserId && issue.userIds.includes(this.currentUserId)\n        : true;\n\n      const isIgnoreResolved = ignoreResolved ? issue.status !== IssueStatus.DONE : true;\n\n      return isMatchTerm && isIncludeUsers && isMyIssue && isIgnoreResolved;\n    });\n  }\n\n  isDateWithinThreeDaysFromNow(date: string) {\n    const now = new Date();\n    const inputDate = new Date(date);\n    return dateFns.isAfter(inputDate, dateFns.subDays(now, 3));\n  }\n}\n",
+            "sourceCode": "import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';\nimport { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';\nimport { IssueStatus, IssueStatusDisplay, JIssue } from '@trungk18/interface/issue';\nimport { FilterState } from '@trungk18/project/state/filter/filter.store';\nimport { ProjectService } from '@trungk18/project/state/project/project.service';\nimport { Observable, combineLatest } from 'rxjs';\nimport { untilDestroyed, UntilDestroy } from '@ngneat/until-destroy';\nimport { FilterQuery } from '@trungk18/project/state/filter/filter.query';\nimport * as dateFns from 'date-fns';\nimport { IssueUtil } from '@trungk18/project/utils/issue';\n\n@Component({\n  selector: '[board-dnd-list]',\n  templateUrl: './board-dnd-list.component.html',\n  styleUrls: ['./board-dnd-list.component.scss'],\n  encapsulation: ViewEncapsulation.None\n})\n@UntilDestroy()\nexport class BoardDndListComponent implements OnInit {\n  @Input() status: IssueStatus;\n  @Input() currentUserId: string;\n  @Input() issues$: Observable<JIssue[]>;\n\n  // eslint-disable-next-line @typescript-eslint/naming-convention\n  IssueStatusDisplay = IssueStatusDisplay;\n  issues: JIssue[] = [];\n\n  get issuesCount(): number {\n    return this.issues.length;\n  }\n\n  constructor(private _projectService: ProjectService, private _filterQuery: FilterQuery) {}\n\n  ngOnInit(): void {\n    combineLatest([this.issues$, this._filterQuery.all$])\n      .pipe(untilDestroyed(this))\n      .subscribe(([issues, filter]) => {\n        this.issues = this.filterIssues(issues, filter);\n      });\n  }\n\n  drop(event: CdkDragDrop<JIssue[]>) {\n    const newIssue: JIssue = { ...event.item.data };\n    const newIssues = [...event.container.data];\n    if (event.previousContainer === event.container) {\n      moveItemInArray(newIssues, event.previousIndex, event.currentIndex);\n      this.updateListPosition(newIssues);\n    } else {\n      transferArrayItem(\n        event.previousContainer.data,\n        newIssues,\n        event.previousIndex,\n        event.currentIndex\n      );\n      this.updateListPosition(newIssues);\n      newIssue.status = event.container.id as IssueStatus;\n      this._projectService.updateIssue(newIssue);\n    }\n  }\n\n  filterIssues(issues: JIssue[], filter: FilterState): JIssue[] {\n    const { onlyMyIssue, ignoreResolved, searchTerm, userIds } = filter;\n    return issues.filter((issue) => {\n      const isMatchTerm = searchTerm ? IssueUtil.searchString(issue.title, searchTerm) : true;\n\n      const isIncludeUsers = userIds.length\n        ? issue.userIds.some((userId) => userIds.includes(userId))\n        : true;\n\n      const isMyIssue = onlyMyIssue\n        ? this.currentUserId && issue.userIds.includes(this.currentUserId)\n        : true;\n\n      const isIgnoreResolved = ignoreResolved ? issue.status !== IssueStatus.DONE : true;\n\n      return isMatchTerm && isIncludeUsers && isMyIssue && isIgnoreResolved;\n    });\n  }\n\n  isDateWithinThreeDaysFromNow(date: string) {\n    const now = new Date();\n    const inputDate = new Date(date);\n    return dateFns.isAfter(inputDate, dateFns.subDays(now, 3));\n  }\n\n  private updateListPosition(newList: JIssue[]) {\n    newList.forEach((issue, idx) => {\n      const newIssueWithNewPosition = { ...issue, listPosition: idx + 1 };\n      this._projectService.updateIssue(newIssueWithNewPosition);\n    });\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -2718,7 +2707,7 @@
                         "type": "FilterQuery"
                     }
                 ],
-                "line": 28,
+                "line": 30,
                 "jsdoctags": [
                     {
                         "name": "_projectService",
@@ -2746,7 +2735,7 @@
                         "name": "issuesCount",
                         "type": "number",
                         "returnType": "number",
-                        "line": 26
+                        "line": 28
                     }
                 }
             },
@@ -3091,7 +3080,7 @@
         },
         {
             "name": "FullIssueDetailComponent",
-            "id": "component-FullIssueDetailComponent-8898b5e7b84a989311978a165f3a2d43",
+            "id": "component-FullIssueDetailComponent-d7026d438fc0c60c88c65d08afe01aad",
             "file": "src/app/project/pages/full-issue-detail/full-issue-detail.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -3154,7 +3143,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 49,
+                    "line": 40,
                     "jsdoctags": [
                         {
                             "type": "DeleteIssueModel",
@@ -3170,7 +3159,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 40,
+                    "line": 46,
                     "modifierKind": [
                         112
                     ]
@@ -3189,7 +3178,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, OnInit } from '@angular/core';\nimport { ActivatedRoute, Router } from '@angular/router';\nimport { ProjectConst } from '@trungk18/project/config/const';\nimport { ProjectQuery } from '@trungk18/project/state/project/project.query';\nimport { JProject } from '@trungk18/interface/project';\nimport { untilDestroyed, UntilDestroy } from '@ngneat/until-destroy';\nimport { Observable } from 'rxjs';\nimport { JIssue } from '@trungk18/interface/issue';\nimport { ProjectService } from '@trungk18/project/state/project/project.service';\nimport { DeleteIssueModel } from '@trungk18/interface/ui-model/delete-issue-model';\n\n@Component({\n  selector: 'full-issue-detail',\n  templateUrl: './full-issue-detail.component.html',\n  styleUrls: ['./full-issue-detail.component.scss']\n})\n@UntilDestroy()\nexport class FullIssueDetailComponent implements OnInit {\n  project: JProject;\n  issueById$: Observable<JIssue>;\n  issueId: string;\n  get breadcrumbs(): string[] {\n    return [ProjectConst.Projects, this.project?.name, 'Issues', this.issueId];\n  }\n\n  constructor(\n    private _router: Router,\n    private _route: ActivatedRoute,\n    private _projectQuery: ProjectQuery,\n    private _projectService: ProjectService\n  ) {}\n\n  ngOnInit(): void {\n    this.getIssue();\n    this._projectQuery.all$.pipe(untilDestroyed(this)).subscribe((project) => {\n      this.project = project;\n    });\n  }\n\n  private getIssue() {\n    this.issueId = this._route.snapshot.paramMap.get(ProjectConst.IssueId);\n    if (!this.issueId) {\n      this.backHome();\n      return;\n    }\n    this.issueById$ = this._projectQuery.issueById$(this.issueId);\n  }\n\n  deleteIssue({issueId, deleteModalRef}: DeleteIssueModel) {\n    this._projectService.deleteIssue(issueId);\n    deleteModalRef.close();\n    this.backHome();\n  }\n\n  private backHome() {\n    this._router.navigate(['/']);\n  }\n}\n",
+            "sourceCode": "import { Component, OnInit } from '@angular/core';\nimport { ActivatedRoute, Router } from '@angular/router';\nimport { ProjectConst } from '@trungk18/project/config/const';\nimport { ProjectQuery } from '@trungk18/project/state/project/project.query';\nimport { JProject } from '@trungk18/interface/project';\nimport { untilDestroyed, UntilDestroy } from '@ngneat/until-destroy';\nimport { Observable } from 'rxjs';\nimport { JIssue } from '@trungk18/interface/issue';\nimport { ProjectService } from '@trungk18/project/state/project/project.service';\nimport { DeleteIssueModel } from '@trungk18/interface/ui-model/delete-issue-model';\n\n@Component({\n  selector: 'full-issue-detail',\n  templateUrl: './full-issue-detail.component.html',\n  styleUrls: ['./full-issue-detail.component.scss']\n})\n@UntilDestroy()\nexport class FullIssueDetailComponent implements OnInit {\n  project: JProject;\n  issueById$: Observable<JIssue>;\n  issueId: string;\n  get breadcrumbs(): string[] {\n    return [ProjectConst.Projects, this.project?.name, 'Issues', this.issueId];\n  }\n\n  constructor(\n    private _router: Router,\n    private _route: ActivatedRoute,\n    private _projectQuery: ProjectQuery,\n    private _projectService: ProjectService\n  ) {}\n\n  ngOnInit(): void {\n    this.getIssue();\n    this._projectQuery.all$.pipe(untilDestroyed(this)).subscribe((project) => {\n      this.project = project;\n    });\n  }\n\n  deleteIssue({issueId, deleteModalRef}: DeleteIssueModel) {\n    this._projectService.deleteIssue(issueId);\n    deleteModalRef.close();\n    this.backHome();\n  }\n\n  private getIssue() {\n    this.issueId = this._route.snapshot.paramMap.get(ProjectConst.IssueId);\n    if (!this.issueId) {\n      this.backHome();\n      return;\n    }\n    this.issueById$ = this._projectQuery.issueById$(this.issueId);\n  }\n\n  private backHome() {\n    this._router.navigate(['/']);\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -4624,7 +4613,7 @@
         },
         {
             "name": "IssuePriorityComponent",
-            "id": "component-IssuePriorityComponent-4b69214673be8d908d508f852bf33774",
+            "id": "component-IssuePriorityComponent-2c8f9428686183db9eb8ab5fa62e5ba4",
             "file": "src/app/project/components/issues/issue-priority/issue-priority.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -4643,7 +4632,7 @@
             "inputsClass": [
                 {
                     "name": "issue",
-                    "line": 22,
+                    "line": 14,
                     "type": "JIssue"
                 }
             ],
@@ -4654,14 +4643,14 @@
                     "type": "IssuePriorityIcon[]",
                     "optional": false,
                     "description": "",
-                    "line": 20
+                    "line": 21
                 },
                 {
                     "name": "selectedPriority",
                     "type": "IssuePriority",
                     "optional": false,
                     "description": "",
-                    "line": 14
+                    "line": 16
                 }
             ],
             "methodsClass": [
@@ -4676,7 +4665,7 @@
                     "optional": false,
                     "returnType": "boolean",
                     "typeParameters": [],
-                    "line": 34,
+                    "line": 33,
                     "jsdoctags": [
                         {
                             "name": "priority",
@@ -4693,7 +4682,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 30
+                    "line": 29
                 },
                 {
                     "name": "ngOnInit",
@@ -4701,7 +4690,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 26
+                    "line": 25
                 },
                 {
                     "name": "updateIssue",
@@ -4714,7 +4703,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 38,
+                    "line": 37,
                     "jsdoctags": [
                         {
                             "name": "priority",
@@ -4731,7 +4720,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, Input, OnChanges, OnInit } from '@angular/core';\nimport { JIssue, IssuePriority } from '@trungk18/interface/issue';\nimport { IssuePriorityIcon } from '@trungk18/interface/issue-priority-icon';\nimport { IssueUtil } from '@trungk18/project/utils/issue';\nimport { ProjectService } from '@trungk18/project/state/project/project.service';\nimport { ProjectConst } from '@trungk18/project/config/const';\n\n@Component({\n  selector: 'issue-priority',\n  templateUrl: './issue-priority.component.html',\n  styleUrls: ['./issue-priority.component.scss']\n})\nexport class IssuePriorityComponent implements OnInit, OnChanges {\n  selectedPriority: IssuePriority;\n\n  get selectedPriorityIcon() {\n    return IssueUtil.getIssuePriorityIcon(this.selectedPriority);\n  }\n\n  priorities: IssuePriorityIcon[];\n\n  @Input() issue: JIssue;\n\n  constructor(private _projectService: ProjectService) {}\n\n  ngOnInit() {\n    this.priorities = ProjectConst.PrioritiesWithIcon;\n  }\n\n  ngOnChanges(): void {\n    this.selectedPriority = this.issue?.priority;\n  }\n\n  isPrioritySelected(priority: IssuePriority) {\n    return priority === this.selectedPriority;\n  }\n\n  updateIssue(priority: IssuePriority) {\n    this.selectedPriority = priority;\n    this._projectService.updateIssue({\n      ...this.issue,\n      priority: this.selectedPriority\n    });\n  }\n}\n",
+            "sourceCode": "import { Component, Input, OnChanges, OnInit } from '@angular/core';\nimport { JIssue, IssuePriority } from '@trungk18/interface/issue';\nimport { IssuePriorityIcon } from '@trungk18/interface/issue-priority-icon';\nimport { IssueUtil } from '@trungk18/project/utils/issue';\nimport { ProjectService } from '@trungk18/project/state/project/project.service';\nimport { ProjectConst } from '@trungk18/project/config/const';\n\n@Component({\n  selector: 'issue-priority',\n  templateUrl: './issue-priority.component.html',\n  styleUrls: ['./issue-priority.component.scss']\n})\nexport class IssuePriorityComponent implements OnInit, OnChanges {\n  @Input() issue: JIssue;\n\n  selectedPriority: IssuePriority;\n  get selectedPriorityIcon() {\n    return IssueUtil.getIssuePriorityIcon(this.selectedPriority);\n  }\n\n  priorities: IssuePriorityIcon[];\n\n  constructor(private _projectService: ProjectService) {}\n\n  ngOnInit() {\n    this.priorities = ProjectConst.PrioritiesWithIcon;\n  }\n\n  ngOnChanges(): void {\n    this.selectedPriority = this.issue?.priority;\n  }\n\n  isPrioritySelected(priority: IssuePriority) {\n    return priority === this.selectedPriority;\n  }\n\n  updateIssue(priority: IssuePriority) {\n    this.selectedPriority = priority;\n    this._projectService.updateIssue({\n      ...this.issue,\n      priority: this.selectedPriority\n    });\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -4749,7 +4738,7 @@
                         "type": "ProjectService"
                     }
                 ],
-                "line": 22,
+                "line": 21,
                 "jsdoctags": [
                     {
                         "name": "_projectService",
@@ -4771,7 +4760,7 @@
                         "name": "selectedPriorityIcon",
                         "type": "",
                         "returnType": "",
-                        "line": 16
+                        "line": 17
                     }
                 }
             },
@@ -5146,7 +5135,7 @@
         },
         {
             "name": "IssueStatusComponent",
-            "id": "component-IssueStatusComponent-ea607f15ec592d16f5e9fff2e7116945",
+            "id": "component-IssueStatusComponent-781cc8c821b4898c7d51140b1ffa0134",
             "file": "src/app/project/components/issues/issue-status/issue-status.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -5177,14 +5166,14 @@
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 13
+                    "line": 14
                 },
                 {
                     "name": "issueStatuses",
                     "type": "IssueStatusValueTitle[]",
                     "optional": false,
                     "description": "",
-                    "line": 22
+                    "line": 23
                 },
                 {
                     "name": "variants",
@@ -5192,7 +5181,7 @@
                     "type": "object",
                     "optional": false,
                     "description": "",
-                    "line": 15
+                    "line": 16
                 }
             ],
             "methodsClass": [
@@ -5207,7 +5196,7 @@
                     "optional": false,
                     "returnType": "boolean",
                     "typeParameters": [],
-                    "line": 44,
+                    "line": 45,
                     "jsdoctags": [
                         {
                             "name": "status",
@@ -5224,7 +5213,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 26
+                    "line": 27
                 },
                 {
                     "name": "updateIssue",
@@ -5237,7 +5226,7 @@
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 35,
+                    "line": 36,
                     "jsdoctags": [
                         {
                             "name": "status",
@@ -5254,7 +5243,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { IssueStatus, IssueStatusDisplay, JIssue } from '@trungk18/interface/issue';\nimport { ProjectService } from '@trungk18/project/state/project/project.service';\nimport { ProjectQuery } from '@trungk18/project/state/project/project.query';\n\n@Component({\n  selector: 'issue-status',\n  templateUrl: './issue-status.component.html',\n  styleUrls: ['./issue-status.component.scss']\n})\nexport class IssueStatusComponent implements OnInit {\n  @Input() issue: JIssue;\n  IssueStatusDisplay = IssueStatusDisplay;\n\n  variants = {\n    [IssueStatus.BACKLOG]: 'btn-secondary',\n    [IssueStatus.SELECTED]: 'btn-secondary',\n    [IssueStatus.IN_PROGRESS]: 'btn-primary',\n    [IssueStatus.DONE]: 'btn-success'\n  };\n\n  issueStatuses: IssueStatusValueTitle[];\n\n  constructor(private _projectService: ProjectService, private _projectQuery: ProjectQuery) {}\n\n  ngOnInit(): void {\n    this.issueStatuses = [\n      new IssueStatusValueTitle(IssueStatus.BACKLOG),\n      new IssueStatusValueTitle(IssueStatus.SELECTED),\n      new IssueStatusValueTitle(IssueStatus.IN_PROGRESS),\n      new IssueStatusValueTitle(IssueStatus.DONE)\n    ];\n  }\n\n  updateIssue(status: IssueStatus) {\n    const newPosition = this._projectQuery.lastIssuePosition(status);\n    this._projectService.updateIssue({\n      ...this.issue,\n      status,\n      listPosition: newPosition + 1\n    });\n  }\n\n  isStatusSelected(status: IssueStatus) {\n    return this.issue.status === status;\n  }\n}\n\nclass IssueStatusValueTitle {\n  value: IssueStatus;\n  label: string;\n  constructor(issueStatus: IssueStatus) {\n    this.value = issueStatus;\n    this.label = IssueStatusDisplay[issueStatus];\n  }\n}\n",
+            "sourceCode": "import { Component, Input, OnInit } from '@angular/core';\nimport { IssueStatus, IssueStatusDisplay, JIssue } from '@trungk18/interface/issue';\nimport { ProjectService } from '@trungk18/project/state/project/project.service';\nimport { ProjectQuery } from '@trungk18/project/state/project/project.query';\n\n@Component({\n  selector: 'issue-status',\n  templateUrl: './issue-status.component.html',\n  styleUrls: ['./issue-status.component.scss']\n})\nexport class IssueStatusComponent implements OnInit {\n  @Input() issue: JIssue;\n  // eslint-disable-next-line @typescript-eslint/naming-convention\n  IssueStatusDisplay = IssueStatusDisplay;\n\n  variants = {\n    [IssueStatus.BACKLOG]: 'btn-secondary',\n    [IssueStatus.SELECTED]: 'btn-secondary',\n    [IssueStatus.IN_PROGRESS]: 'btn-primary',\n    [IssueStatus.DONE]: 'btn-success'\n  };\n\n  issueStatuses: IssueStatusValueTitle[];\n\n  constructor(private _projectService: ProjectService, private _projectQuery: ProjectQuery) {}\n\n  ngOnInit(): void {\n    this.issueStatuses = [\n      new IssueStatusValueTitle(IssueStatus.BACKLOG),\n      new IssueStatusValueTitle(IssueStatus.SELECTED),\n      new IssueStatusValueTitle(IssueStatus.IN_PROGRESS),\n      new IssueStatusValueTitle(IssueStatus.DONE)\n    ];\n  }\n\n  updateIssue(status: IssueStatus) {\n    const newPosition = this._projectQuery.lastIssuePosition(status);\n    this._projectService.updateIssue({\n      ...this.issue,\n      status,\n      listPosition: newPosition + 1\n    });\n  }\n\n  isStatusSelected(status: IssueStatus) {\n    return this.issue.status === status;\n  }\n}\n\nclass IssueStatusValueTitle {\n  value: IssueStatus;\n  label: string;\n  constructor(issueStatus: IssueStatus) {\n    this.value = issueStatus;\n    this.label = IssueStatusDisplay[issueStatus];\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -5276,7 +5265,7 @@
                         "type": "ProjectQuery"
                     }
                 ],
-                "line": 22,
+                "line": 23,
                 "jsdoctags": [
                     {
                         "name": "_projectService",
@@ -6440,7 +6429,7 @@
                     }
                 }
             },
-            "templateData": "<div [style.width.px]=\"sidebarWidth\"\n     class=\"sidebar\">\n    <div class=\"sidebar-content\">\n        <div class=\"flex py-6 px-1\">\n            <j-avatar avatarUrl=\"https://res.cloudinary.com/dvujyxh7e/image/upload/c_scale,w_256/v1593097745/angular-vietnam-transparent_iwfwxa.png\"\n                      [name]=\"'Project'\"\n                      [rounded]=\"false\"\n                      [size]=\"45\"\n                      title=\"Angular Vietnam\">\n            </j-avatar>\n            <div class=\"pl-2\">\n                <div class=\"text-textDark text-15 font-medium\">\n                    {{ project.name }}\n                </div>\n                <div class=\"text-textMedium text-13\">\n                    {{ project.category }} Project\n                </div>\n            </div>\n        </div>\n\n        <div *ngFor=\"let link of sideBarLinks; let idx = index\">\n            <a *ngIf=\"link.url\"\n               :is=\"link.to ? 'router-link' : 'div'\"\n               [routerLink]=\"link.url\"\n               routerLinkActive=\"active\"\n               tag=\"a\"\n               class=\"link allowed\">\n\n                <svg-icon class=\"mr-4\"\n                          [name]=\"link.icon\"\n                          [size]=\"24\">\n                </svg-icon>\n\n                <div class=\"text-15 pt-px\">{{ link.name }}</div>\n            </a>\n            <div *ngIf=\"!link.url\"\n                 class=\"link not-allowed\">\n\n                <svg-icon class=\"mr-4\"\n                          [name]=\"link.icon\"\n                          [size]=\"24\">\n                </svg-icon>\n\n                <div class=\"text-15 pt-px\">{{ link.name }}</div>\n                <div class=\"not-implemented\">\n                    Not implemented\n                </div>\n            </div>\n\n            <div *ngIf=\"idx === 1\"\n                 class=\"divider\"></div>\n        </div>\n    </div>\n</div>"
+            "templateData": "<div [style.width.px]=\"sidebarWidth\"\n     class=\"sidebar\">\n    <div class=\"sidebar-content\">\n        <div class=\"flex px-1 py-6\">\n            <j-avatar avatarUrl=\"https://res.cloudinary.com/dvujyxh7e/image/upload/c_scale,w_256/v1593097745/angular-vietnam-transparent_iwfwxa.png\"\n                      [name]=\"'Project'\"\n                      [rounded]=\"false\"\n                      [size]=\"45\"\n                      title=\"Angular Vietnam\">\n            </j-avatar>\n            <div class=\"pl-2\">\n                <div class=\"font-medium text-textDark text-15\">\n                    {{ project.name }}\n                </div>\n                <div class=\"text-textMedium text-13\">\n                    {{ project.category }} Project\n                </div>\n            </div>\n        </div>\n\n        <div *ngFor=\"let link of sideBarLinks; let idx = index\">\n            <a *ngIf=\"link.url\"\n               [routerLink]=\"link.url\"\n               routerLinkActive=\"active\"\n               class=\"link allowed\">\n\n                <svg-icon class=\"mr-4\"\n                          [name]=\"link.icon\"\n                          [size]=\"24\">\n                </svg-icon>\n\n                <div class=\"pt-px text-15\">{{ link.name }}</div>\n            </a>\n            <div *ngIf=\"!link.url\"\n                 class=\"link not-allowed\">\n\n                <svg-icon class=\"mr-4\"\n                          [name]=\"link.icon\"\n                          [size]=\"24\">\n                </svg-icon>\n\n                <div class=\"pt-px text-15\">{{ link.name }}</div>\n                <div class=\"not-implemented\">\n                    Not implemented\n                </div>\n            </div>\n\n            <div *ngIf=\"idx === 1\"\n                 class=\"divider\"></div>\n        </div>\n    </div>\n</div>"
         },
         {
             "name": "SnowComponent",
@@ -7325,17 +7314,17 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/jira-control/button/button.stories.ts",
-                "type": "Story<ButtonComponent>",
-                "defaultValue": "({ label, className }: Partial<ButtonProps>) => ({\n  component: ButtonComponent,\n  moduleMetadata: {\n    declarations: [ButtonComponent], // Removed if no template\n    imports: []\n  },\n  template: `<j-button className='${className}'>${label}</j-button>`\n})"
+                "file": "src/app/jira-control/avatar/avatar.stories.ts",
+                "type": "Story<AvatarComponent>",
+                "defaultValue": "(args: AvatarComponent) => ({\n  component: AvatarComponent,\n  props: args\n})"
             },
             {
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/app/jira-control/avatar/avatar.stories.ts",
-                "type": "Story<AvatarComponent>",
-                "defaultValue": "(args: AvatarComponent) => ({\n  component: AvatarComponent,\n  props: args\n})"
+                "file": "src/app/jira-control/button/button.stories.ts",
+                "type": "Story<ButtonComponent>",
+                "defaultValue": "({ label, className }: Partial<ButtonProps>) => ({\n  component: ButtonComponent,\n  moduleMetadata: {\n    declarations: [ButtonComponent], // Removed if no template\n    imports: []\n  },\n  template: `<j-button className='${className}'>${label}</j-button>`\n})"
             },
             {
                 "name": "Template",
@@ -7393,6 +7382,15 @@
                 "file": "src/app/project/components/navigation/navbar-left/navbar-left.component.ts",
                 "description": "",
                 "kind": 162
+            },
+            {
+                "name": "ProjectState",
+                "ctype": "miscellaneous",
+                "subtype": "typealias",
+                "rawtype": "JProject",
+                "file": "src/app/project/state/project/project.store.ts",
+                "description": "",
+                "kind": 161
             }
         ],
         "enumerations": [
@@ -7919,6 +7917,17 @@
                     "file": "src/app/project/components/navigation/navbar-left/navbar-left.component.ts",
                     "description": "",
                     "kind": 162
+                }
+            ],
+            "src/app/project/state/project/project.store.ts": [
+                {
+                    "name": "ProjectState",
+                    "ctype": "miscellaneous",
+                    "subtype": "typealias",
+                    "rawtype": "JProject",
+                    "file": "src/app/project/state/project/project.store.ts",
+                    "description": "",
+                    "kind": 161
                 }
             ]
         }
@@ -8826,15 +8835,6 @@
                 "name": "ProjectStore",
                 "coveragePercent": 0,
                 "coverageCount": "0/2",
-                "status": "low"
-            },
-            {
-                "filePath": "src/app/project/state/project/project.store.ts",
-                "type": "interface",
-                "linktype": "interface",
-                "name": "ProjectState",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
                 "status": "low"
             },
             {

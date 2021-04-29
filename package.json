@@ -14,7 +14,7 @@
         "docs:json": "compodoc -p ./tsconfig.json -e json -d .",
         "docs:html": "npx compodoc -p tsconfig.json src  && npx serve documentation",
         "storybook": "npm run docs:json && start-storybook -p 6006",
-        "build-storybook": "STORYBOOK_REACT_GA_OPTIONS={} npm run docs:json && build-storybook"
+        "build-storybook": "yarn docs:json && build-storybook"
     },
     "private": true,
     "dependencies": {
